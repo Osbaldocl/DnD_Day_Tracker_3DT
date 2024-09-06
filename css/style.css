@@ -1,0 +1,119 @@
+/* Estilo básico del cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a2e; /* Fondo azul oscuro */
+    color: #e6e6e6; /* Texto claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow-y: auto; /* Permitir desplazamiento vertical si el contenido es muy largo */
+    padding: 20px;
+    transition: background-color 1s ease; /* Transición suave del fondo */
+}
+
+/* NO OLVIDAR ESTILIZAR EL LOGO */
+.logo-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00cc99, #cc9933, #ff6666); /* Degradado original */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Degradado aplicado al texto */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); /* Sombra para profundidad */
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #e6e6e6;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Contenedor de la caja de configuración */
+.container {
+    background-color: #1a1a2e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Botones */
+button {
+    background-color: #00a8cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007a99;
+}
+
+.preset-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.preset-btn {
+    background-color: #00a8cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.preset-btn:hover {
+    background-color: #007a99;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Botón de Iniciar Sesión */
+#start-session-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #00a8cc;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-session-btn:hover {
+    background-color: #007a99;
+}
+
+/* Transición suave para el color de los textos relacionados */
+#time-format, .last-time-container h3, #last-time {
+    transition: color 1s ease;
+}

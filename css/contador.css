@@ -1,0 +1,359 @@
+/* ========================
+   Estilos principales del contador
+   ======================== */
+
+/* Ajuste para centrar todo el contenido verticalmente y reducir la necesidad de scroll */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Evitar el scrollbar innecesario en la página principal */
+    background-color: #1a1a2e;
+    /* Fondo oscuro inicial (noche) */
+    transition: background-color 2s ease;
+    /* Transición suave del fondo */
+}
+
+/* ========================
+   Gradiente de fondo para los ciclos de día/noche
+   ======================== */
+
+body.day {
+    background: linear-gradient(to top, #87CEEB, #FFF8DC);
+    /* Día claro */
+    transition: background 1s ease;
+}
+
+body.night {
+    background: linear-gradient(to top, #0c1445, #1a1a2e);
+    /* Noche oscura */
+    transition: background 1s ease;
+}
+
+body.dawn {
+    background: linear-gradient(to top, #FFB6C1, #FFD700);
+    /* Amanecer */
+    transition: background 1s ease;
+}
+
+body.dusk {
+    background: linear-gradient(to top, #F08080, #2F4F4F);
+    /* Atardecer */
+    transition: background 1s ease;
+}
+
+/* Amanecer */
+body.dawn .counter-time {
+    color: #FFA07A; /* Salmón claro */
+}
+
+/* Día */
+body.day .counter-time {
+    color: #000080; /* Azul oscuro */
+}
+
+/* Atardecer */
+body.dusk {
+    color: #FFD700; /* Dorado */
+}
+
+/* Noche */
+body.night {
+    color: #ffffff; /* Blanco */
+}
+
+/* Amanecer */
+body.dawn {
+    color: #FFA07A; /* Salmón claro */
+}
+
+/* Día */
+body.day {
+    color: #000080; /* Azul oscuro */
+}
+
+/* Atardecer */
+body.dusk {
+    color: #FFD700; /* Dorado */
+}
+
+/* Noche */
+body.night {
+    color: #ffffff; /* Blanco */
+}
+
+/* Contenedor principal del contador 
+   - Ajusta el ancho y el espacio del contenedor.
+   - Permite scroll vertical si el contenido es más grande que el espacio visible.
+*/
+.counter-container {
+    text-align: center;
+    max-width: 600px;
+    /* Limitar el ancho máximo a 600px */
+    width: 100%;
+    background-color: transparent;
+    /* Fondo oscuro */
+    overflow-y: hidden;
+    /* Permitir scroll si el contenido es más largo */
+}
+
+
+
+/* ========================
+   Estilos para el tiempo del contador
+   ======================== */
+
+/* Tiempo del contador 
+   - Define el tamaño y el estilo del texto del contador.
+*/
+.counter-time {
+    font-size: 4rem;
+    /* Tamaño grande del texto */
+    font-weight: bold;
+    /* Texto en negrita */
+    color: #fff;
+    /* Color blanco */
+    /* Eliminar scrollbar forzando un ancho y altura que se adapten al contenido */
+    overflow: hidden;
+    transition: color 1s ease;
+    /* Transición suave del color de las letras */
+}
+
+/* Formato de 12/24 horas 
+   - Define el tamaño del texto del formato de la hora.
+*/
+#time-format {
+    font-size: 1.2rem;
+    color: #ccc;
+    /* Texto gris claro */
+    margin-bottom: 20px;
+}
+
+/* ========================
+   Estilos de botones
+   ======================== */
+
+/* Botones generales del contador 
+   - Estilo base para todos los botones.
+*/
+button {
+    padding: 8px 16px;
+    /* Tamaño reducido de los botones */
+    border: none;
+    border-radius: 5px;
+    /* Bordes redondeados */
+    background-color: #00a8cc;
+    /* Color de fondo azul */
+    color: white;
+    /* Texto blanco */
+    cursor: pointer;
+    /* Cursor de "pointer" al pasar por encima */
+    margin: 5px;
+    /* Espacio alrededor de los botones */
+    transition: background-color 0.3s ease;
+    /* Efecto de transición en el color del fondo */
+}
+
+/* Efecto hover en botones 
+   - Cambia el color del botón cuando el usuario pasa el mouse.
+*/
+button:hover {
+    background-color: #007a99;
+    /* Azul más oscuro en hover */
+}
+
+/* Estilo de botones deshabilitados 
+   - Botones que no se pueden hacer clic.
+*/
+button:disabled {
+    background-color: #cccccc;
+    /* Color gris para botones deshabilitados */
+    cursor: not-allowed;
+    /* No permite hacer clic */
+}
+
+/* ========================
+   Última hora registrada
+   ======================== */
+
+/* Contenedor para la última hora registrada 
+   - Estilo para mostrar el tiempo registrado en el contador.
+*/
+.last-time-container {
+    text-align: center;
+    margin-top: 20px;
+    color: #ecf0f1;
+    /* Color gris claro */
+}
+
+#last-time {
+    font-size: 24px;
+    /* Tamaño del texto para la última hora */
+    font-weight: bold;
+    /* Texto en negrita */
+}
+
+/* ========================
+   Sugerencias de tiempo
+   ======================== */
+
+/* Botones de sugerencias de tiempo 
+   - Estilo para los botones de sugerencias rápidas de tiempo.
+*/
+.suggest-btn {
+    padding: 10px 20px;
+    /* Espaciado dentro del botón */
+    font-size: 1rem;
+    /* Tamaño del texto */
+    background-color: #28a745;
+    /* Verde brillante */
+    color: white;
+    /* Texto blanco */
+    margin: 5px;
+    /* Espaciado entre los botones */
+    border: none;
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cursor de "pointer" al pasar por encima */
+}
+
+/* Efecto hover en los botones de sugerencias 
+   - Cambia el color cuando el usuario pasa el mouse.
+*/
+.suggest-btn:hover {
+    background-color: #218838;
+    /* Verde más oscuro */
+}
+
+/* ========================
+   Estilos del formulario para añadir tiempo
+   ======================== */
+
+/* Contenedor del formulario 
+   - Estilo general para la caja de formulario que permite agregar horas y minutos manualmente.
+*/
+form {
+    background-color: #162447;
+    /* Fondo azul oscuro */
+    padding: 15px;
+    /* Espaciado dentro del formulario */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 0 10px #00a8cc;
+    /* Sombra azul brillante */
+    width: 100%;
+    max-width: 400px;
+    /* Limitar el ancho máximo */
+    margin: 20px auto;
+    /* Centrar el formulario en la página */
+    text-align: center;
+    /*margin-top: 20px; /* Reducir el espacio entre el contador y las opciones de agregar tiempo */
+}
+
+/* Campos de entrada del formulario 
+   - Estilo para los inputs de horas y minutos.
+*/
+input[type="number"] {
+    width: 60px;
+    /* Ancho fijo */
+    padding: 5px;
+    /* Espacio dentro del campo */
+    margin: 5px;
+    /* Espacio alrededor del campo */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    border: 1px solid #ccc;
+    /* Borde gris claro */
+}
+
+/* Botón de envío en el formulario 
+   - Estilo para el botón de "Agregar".
+*/
+#submit-time-btn {
+    padding: 10px 20px;
+    /* Tamaño del botón */
+    background-color: #00a8cc;
+    /* Fondo azul */
+    color: white;
+    /* Texto blanco */
+    cursor: pointer;
+    /* Cursor de "pointer" */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+    /* Efecto de transición en el color del fondo */
+}
+
+#submit-time-btn:hover {
+    background-color: #007a99;
+    /* Azul más oscuro en hover */
+}
+
+/* ========================
+   Sol y luna
+   ======================== */
+
+/* Estilo para el sol y la luna 
+   - El sol se muestra por defecto y la luna aparece durante la noche.
+*/
+.sun,
+.moon {
+    position: absolute;
+    top: 2%;
+    /* Ajusta la posición vertical del sol y la luna */
+    left: -10%;
+    /* Comienzan fuera de la pantalla */
+    width: 100px;
+    /* Tamaño del sol y la luna */
+    height: 100px;
+    border-radius: 50%;
+    /* Forma circular */
+    transition: left 1s linear;
+    /* Moverse de izquierda a derecha en 12 segundos (ciclo completo) */
+}
+
+/* Sol 
+   - Estilo específico para el sol (por defecto visible).
+*/
+.sun {
+    background: yellow;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.8);
+    display: block;
+}
+
+/* Luna 
+   - Estilo específico para la luna (por defecto oculta).
+*/
+.moon {
+    background: #e6e6e6;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    display: none;
+}
+
+/* Animación del sol moviéndose durante el día */
+.daytime .sun {
+    left: 110%;
+    /* Se moverá de izquierda a derecha fuera de la pantalla */
+}
+
+/* Animación de la luna moviéndose durante la noche */
+.nighttime .moon {
+    left: 110%;
+    /* Se moverá de izquierda a derecha fuera de la pantalla */
+}
+
+/* Estilo para el contador de días */
+.day-counter {
+    margin-top: 5%;
+    font-size: 2.5rem; /* Tamaño del texto del contador de días */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 10px; /* Espacio debajo del contador */
+    color: #fff; /* Color blanco por defecto (se cambiará con JS según ciclo) */
+    transition: color 1s ease; /* Transición suave del color */
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DT - Contador</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contador.css">
+</head>
+
+<body>
+
+    <!-- Contador de días transcurridos -->
+    <div class="day-counter" id="day-counter">Días: 0</div>
+
+    <div class="sun" id="sun"></div>
+    <div class="moon" id="moon"></div>
+
+    <!-- Contador principal -->
+    <div class="counter-container">
+        <h1 class="counter-time" id="counter-time">00:00:00</h1>
+        <p id="time-format">(Formato 24 horas)</p>
+    </div>
+
+    <!-- Registro de la última hora -->
+    <div class="last-time-container">
+        <h3>Última hora registrada:</h3>
+        <p id="last-time">00:00:00</p> <!-- Este campo se actualizará cuando se pause o se reinicie el contador -->
+    </div>
+
+
+    <!-- Botones de control -->
+    <div class="controls-container">
+        <button id="pause-btn" class="control-btn">Pausar</button>
+        <button id="resume-btn" class="control-btn" style="display:none;">Reanudar</button>
+        <button id="reset-btn" class="control-btn">Resetear</button>
+        <button id="toggle-format-btn" class="control-btn">Cambiar formato (12/24 horas)</button>
+    </div>
+
+    <!-- Sección para agregar tiempo manualmente -->
+    <div class="add-time-section">
+        <h3>Agregar Tiempo Manualmente</h3>
+        <div class="time-input">
+            <label for="add-hours">Horas:</label>
+            <input type="number" id="add-hours" name="add-hours" min="0" placeholder="0">
+
+            <label for="add-minutes">Minutos:</label>
+            <input type="number" id="add-minutes" name="add-minutes" min="0" max="59" placeholder="0">
+
+            <button id="submit-time-btn" class="control-btn">Agregar</button>
+        </div>
+
+        <!-- Sugerencias de minutos -->
+        <div class="suggestions">
+            <h4>Sugerencias en minutos:</h4>
+            <button class="suggest-btn" data-time="15">+15 minutos</button>
+            <button class="suggest-btn" data-time="30">+30 minutos</button>
+            <button class="suggest-btn" data-time="45">+45 minutos</button>
+        </div>
+
+        <!-- Sugerencias de horas -->
+        <div class="suggestions">
+            <h4>Sugerencias en horas:</h4>
+            <button class="suggest-btn" data-time="3600">+1 hora</button>
+            <button class="suggest-btn" data-time="7200">+2 horas</button>
+            <button class="suggest-btn" data-time="14400">+4 horas</button>
+            <button class="suggest-btn" data-time="21600">+6 horas</button>
+            <button class="suggest-btn" data-time="28800">+8 horas</button>
+            <button class="suggest-btn" data-time="36000">+10 horas</button>
+            <button class="suggest-btn" data-time="43200">+12 horas</button>
+        </div>
+    </div>
+
+    <script src="js/contador.js" defer></script>
+</body>
+
+</html>
