@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resetBtn.addEventListener('click', () => {
         if (confirm('¿Estás seguro de que deseas resetear el contador?')) {
             totalDays = 0; // También reiniciamos los días al resetear
-            updateCounter();
+            totalSeconds = 0;
             updateDayCounter(); // Actualizar el contador de días
             updateLastTime(); // Actualizar el registro de la última hora al resetear
         }
