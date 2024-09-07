@@ -357,3 +357,32 @@ input[type="number"] {
     color: #fff; /* Color blanco por defecto (se cambiará con JS según ciclo) */
     transition: color 1s ease; /* Transición suave del color */
 }
+/* Contenedor de la parte inferior */
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+    margin-top: 20px; /* Espacio adicional arriba */
+}
+
+/* Ajustes a las secciones de sugerencias para que se vean mejor alineadas */
+.add-time-section .suggestions {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 10px;
+}
+
+.add-time-section .time-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacio entre los inputs y el botón */
+}
+
+/* Ajuste para que los títulos dentro de la sección se centren */
+.add-time-section h3, .add-time-section h4 {
+    text-align: center;
+}

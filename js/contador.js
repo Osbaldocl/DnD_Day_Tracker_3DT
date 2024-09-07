@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let totalSeconds = 0;
     let isPaused = false;
+    let totalDays = 0; // Inicializamos el contador de días
     let format24Hours = true;
     let interval;
     let days = 0;
@@ -36,15 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const sessionDurationSeconds = sessionDuration * 3600; // Duración total de la sesión en segundos
     const incrementPerSecond = dayDurationSeconds / sessionDurationSeconds; // Incremento por segundo
 
+    // Ocultar el contador de días inicialmente
+    dayCounter.style.display = 'none';
 
     // Función para iniciar el contador
     function startCounter() {
         interval = setInterval(() => {
             if (!isPaused) {
                 totalSeconds += incrementPerSecond;
+                // Si el contador supera 24 horas (en segundos), lo reiniciamos pero incrementamos los días
                 if (totalSeconds >= dayDurationSeconds) {
-                    totalSeconds = 0; // Reiniciar el día
-                    days++; // Aumentar el contador de días
+                    totalSeconds -= dayDurationSeconds; // Reseteamos las horas al iniciar un nuevo día
+                    totalDays++; // Incrementamos los días
+                    updateDayCounter(); // Actualizamos el contador de días
                 }
                 updateCounter();
             }
@@ -71,11 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDayNightCycle(hours);
     }
 
+    // Función para actualizar el contador de días en pantalla
+    function updateDayCounter() {
+        if (totalDays >= 1) {
+            dayCounter.style.display = 'block'; // Mostrar el contador de días cuando sea >= 1
+        }
+        dayCounter.textContent = `Días transcurridos: ${totalDays}`;
+    }
+
+
     function updateDayNightCycle(hours) {
 
-        let days = Math.floor(totalSeconds / dayDurationSeconds); // Calcular los días transcurridos
 
-        dayCounter.textContent = `Días: ${days}`; // Actualizar el contador de días
 
         console.log(`Hora actual simulada: ${hours}`); // Verificar la hora actual simulada
 
@@ -114,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.remove('night');
             sun.style.display = 'block';
             moon.style.display = 'none';
-            
+
             // Cambiar color del texto durante el día
             counterTime.style.color = '#0a0a23'; // Texto oscuro
             dayCounter.style.color = '#0a0a23';  // Texto oscuro
@@ -148,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('time-format').style.color = '#fff'; // Texto blanco para "Formato 24 horas"
             document.querySelector('.last-time-container h3').style.color = '#fff'; // Texto blanco para "Última hora registrada"
             document.getElementById('last-time').style.color = '#fff'; // Texto blanco para la última hora registrada
-        
+
             // Mover la luna a lo largo de la pantalla
             const moonPosition = ((hours >= 18 ? hours - 18 : hours + 6) / 12) * 100; // Mover de 0% a 100% entre las 18 y las 6
             moon.style.left = `${moonPosition}%`;
@@ -183,8 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para resetear el contador
     resetBtn.addEventListener('click', () => {
         if (confirm('¿Estás seguro de que deseas resetear el contador?')) {
-            totalSeconds = 0;
+            totalDays = 0; // También reiniciamos los días al resetear
             updateCounter();
+            updateDayCounter(); // Actualizar el contador de días
             updateLastTime(); // Actualizar el registro de la última hora al resetear
         }
     });
