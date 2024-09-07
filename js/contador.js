@@ -194,8 +194,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm('¿Estás seguro de que deseas resetear el contador?')) {
             totalDays = 0; // También reiniciamos los días al resetear
             totalSeconds = 0;
+            updateCounter();
             updateDayCounter(); // Actualizar el contador de días
             updateLastTime(); // Actualizar el registro de la última hora al resetear
+            
         }
     });
 
