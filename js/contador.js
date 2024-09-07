@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Obtener los elementos del DOM
     const counterTime = document.getElementById('counter-time');
-    const timeFormatText = document.getElementById('time-format');
     const pauseBtn = document.getElementById('pause-btn');
     const resumeBtn = document.getElementById('resume-btn');
     const resetBtn = document.getElementById('reset-btn');
@@ -134,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cambiar colores durante el día
             counterTime.style.color = '#0a0a23'; // Texto oscuro para el contador
             dayCounter.style.color = '#0a0a23';  // Texto oscuro para el contador de días
-            document.getElementById('time-format').style.color = '#0a0a23'; // Texto oscuro para "Formato 24 horas"
             document.querySelector('.last-time-container h3').style.color = '#0a0a23'; // Texto oscuro para "Última hora registrada"
             document.getElementById('last-time').style.color = '#0a0a23'; // Texto oscuro para la última hora registrada
 
@@ -157,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cambiar colores durante la noche
             counterTime.style.color = '#fff'; // Texto blanco para el contador
             dayCounter.style.color = '#fff';  // Texto blanco para el contador de días
-            document.getElementById('time-format').style.color = '#fff'; // Texto blanco para "Formato 24 horas"
             document.querySelector('.last-time-container h3').style.color = '#fff'; // Texto blanco para "Última hora registrada"
             document.getElementById('last-time').style.color = '#fff'; // Texto blanco para la última hora registrada
 
